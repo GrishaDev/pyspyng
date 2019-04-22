@@ -1,0 +1,12 @@
+<div class="usersdiv">
+  <div class="userstop">
+    <div> Users </div>
+    <div> amount: {{ users.length}} </div>
+  </div>
+  <div class="mat-elevation-z12 userscontent">
+    <div *ngFor="let user of users" class="userow"> 
+      <div> {{ user }} </div>
+      <div> <mat-icon class="deleteicon" matTooltip="Remove this user">delete</mat-icon> </div>
+    </div>
+  </div>
+</div>

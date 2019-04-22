@@ -1,0 +1,51 @@
+.logs
+{
+    position: absolute;
+    width: 50%;
+    left: 5%;
+    height: 40%;
+}
+.logs:hover .logscontent
+{
+    height: 170%;
+}
+
+.logstop
+{
+    background-color: rgba(36, 37, 54, 0.6);
+    position: relative;
+    height: auto;
+    width: 100%;
+    padding: 1%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logscontent
+{
+    background-color: rgba(192,192,192,0.6);
+    display: block;
+    position: relative;
+    height: 100%;
+    transition-duration: 0.4s;
+    /* padding: 10px; */
+    overflow-y: auto;
+    color: black;
+    font-weight: bold;
+}
+
+.deleteicon
+{
+    overflow: auto;
+    position: absolute;
+    right: 10px;
+}
+
+.deleteicon:hover
+{
+    overflow: auto;
+    position: absolute;
+    right: 10px;
+    color: red
+}

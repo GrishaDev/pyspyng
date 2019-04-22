@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-design-icons/iconfont/material-icons.css';
+
+body{
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(61, 61, 65); */
+    /* background-color: rgb(161, 11, 0); */
+    /* background: url(./assets/bg.jpg) no-repeat center center fixed; */
+    /* background-image: url("./assets/bg.jpg"); */
+}

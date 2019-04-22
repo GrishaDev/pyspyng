@@ -1,0 +1,12 @@
+<div class="logs">
+  <div class="logstop">
+    <div> Logs </div>
+    <div> <mat-icon class="deleteicon" matTooltip="Clear all logs">delete</mat-icon> </div>
+  </div>
+  <div class="mat-elevation-z12 logscontent">
+    <!-- 73/11/2058 || Bamba said: banana haha -->
+    <ul>
+      <li *ngFor="let log of logs"> {{ log }}</li>
+    </ul>
+  </div>
+</div>

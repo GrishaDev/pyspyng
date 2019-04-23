@@ -23,6 +23,7 @@ import { DeletelogdialogComponent } from './deletelogdialog/deletelogdialog.comp
 export class LogsComponent implements OnInit {
 
   logs = [];
+  isloading:boolean = false;
 
   constructor(private logsapi:LogserviceService,private snackBar: MatSnackBar,private dialog: MatDialog) { }
 
@@ -34,14 +35,18 @@ export class LogsComponent implements OnInit {
 
   updateLogs()
   {
+    this.isloading = true;
+
     this.logsapi.getLogs().subscribe((data:any) =>
     {
+      this.isloading = false;
       // console.log(data);
       this.logs = data
-      console.log(this.logs);
+      console.log("Got logs data");
     },
     (err) => {console.log("Error contacting logs service, server down? details: "+JSON.stringify(err));
-    this.openSnackBar("Error getting logs data, try again later","damn")});
+    this.openSnackBar("Error getting logs data, try again later","damn");
+    this.isloading = false;});
   }
 
   openSnackBar(message: string, action: string) {

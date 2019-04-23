@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 // import { ReactiveFormsModule } from '@angular/forms'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule,MatIconModule,MatToolbarModule,MatMenuModule,MatSidenavModule,MatTooltipModule,MatSnackBarModule,MatDialogModule,
-MatFormFieldModule} from '@angular/material';
+MatFormFieldModule,MatProgressSpinnerModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
@@ -44,7 +44,8 @@ import { DownloadlinkComponent } from './main/downloadlink/downloadlink.componen
     MatTooltipModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     DeletelogdialogComponent,

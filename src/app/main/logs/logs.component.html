@@ -4,6 +4,7 @@
     <div> <mat-icon class="deleteicon" matTooltip="Clear all logs" (click)="clearlogs()">delete</mat-icon> </div>
   </div>
   <div class="mat-elevation-z12 logscontent">
+      <mat-spinner class="loading" *ngIf="isloading"></mat-spinner>
     <!-- 73/11/2058 || Bamba said: banana haha -->
     <ul>
       <li *ngFor="let log of logs"> {{ log }}</li>

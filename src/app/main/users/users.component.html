@@ -1,4 +1,4 @@
-<div class="usersdiv">
+<div class="usersdiv" [@slideInOut]>
   <div class="userstop">
     <div> Users </div>
     <div> amount: {{ users.length}} </div>
@@ -6,7 +6,7 @@
   <div class="mat-elevation-z12 userscontent">
     <div *ngFor="let user of users" class="userow"> 
       <div> {{ user }} </div>
-      <div> <mat-icon class="deleteicon" matTooltip="Remove this user">delete</mat-icon> </div>
+      <div> <mat-icon class="deleteicon" matTooltip="Info about user" (click)="openDialog(user)">account_circle</mat-icon> </div>
     </div>
   </div>
 </div>

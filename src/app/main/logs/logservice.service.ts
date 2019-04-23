@@ -17,4 +17,6 @@ export class LogserviceService {
   {
    return this.http.get(host+'/getlogs');
   }
+
+  
 }

@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { LogserviceService } from './logservice.service';
-import {MatSnackBar} from '@angular/material';
+import {MatSnackBar,MatDialog, MatDialogConfig,MAT_DIALOG_DATA,MatDialogRef} from '@angular/material';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { DeletelogdialogComponent } from './deletelogdialog/deletelogdialog.component'
 
 @Component({
   selector: 'logs',
   templateUrl: './logs.component.html',
-  styleUrls: ['./logs.component.css']
+  styleUrls: ['./logs.component.css'],
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({transform: 'translateX(-100%)'}),
+        animate('500ms ease-in', style({transform: 'translateX(0%)'}))
+      ]),
+      transition(':leave', [
+      animate('500ms ease-in', style({transform: 'translateX(0%)'}))
+      ])
+    ])
+  ]
 })
 export class LogsComponent implements OnInit {
 
   logs = [];
 
-  constructor(private logsapi:LogserviceService,private snackBar: MatSnackBar) { }
+  constructor(private logsapi:LogserviceService,private snackBar: MatSnackBar,private dialog: MatDialog) { }
 
   ngOnInit() 
   {
@@ -34,6 +47,23 @@ export class LogsComponent implements OnInit {
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 4000,
+    });
+  }
+
+  clearlogs()
+  {
+    let dialogref = this.dialog.open(DeletelogdialogComponent,
+    {
+
+    });
+
+    dialogref.afterClosed().subscribe(result =>
+    {
+      console.log(result);
+      if(result)
+      {
+        console.log("you press ok, deleting logs");
+      }
     });
   }
 

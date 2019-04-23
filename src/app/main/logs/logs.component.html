@@ -1,7 +1,7 @@
-<div class="logs">
+<div class="logs" [@slideInOut]>
   <div class="logstop">
     <div> Logs </div>
-    <div> <mat-icon class="deleteicon" matTooltip="Clear all logs">delete</mat-icon> </div>
+    <div> <mat-icon class="deleteicon" matTooltip="Clear all logs" (click)="clearlogs()">delete</mat-icon> </div>
   </div>
   <div class="mat-elevation-z12 logscontent">
     <!-- 73/11/2058 || Bamba said: banana haha -->

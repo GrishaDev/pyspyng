@@ -14,7 +14,10 @@ import { LogsComponent } from './main/logs/logs.component';
 import { UsersComponent } from './main/users/users.component';
 import { TitleimgComponent } from './main/titleimg/titleimg.component';
 
-import { LogserviceService } from './main/logs/logservice.service'
+import { LogserviceService } from './main/logs/logservice.service';
+import { UsersService } from './main/users/users.service';
+import { GeneralService } from './main/general.service'
+
 import { DeletelogdialogComponent } from './main/logs/deletelogdialog/deletelogdialog.component';
 import { UserdialogComponent } from './main/users/userdialog/userdialog.component';
 import { DownloadlinkComponent } from './main/downloadlink/downloadlink.component'
@@ -52,7 +55,7 @@ import { DownloadlinkComponent } from './main/downloadlink/downloadlink.componen
     UserdialogComponent,
     DownloadlinkComponent
   ],
-  providers: [LogserviceService],
+  providers: [LogserviceService,UsersService,GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

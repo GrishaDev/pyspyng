@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {MatSnackBar} from '@angular/material';
+import {MatDialog,MAT_DIALOG_DATA,MatDialogRef} from '@angular/material';
+
+export interface DialogData {
+  link: string
+}
 
 @Component({
   selector: 'app-downloadlink',
@@ -8,7 +13,7 @@ import {MatSnackBar} from '@angular/material';
 })
 export class DownloadlinkComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar,public dialogRef: MatDialogRef<DownloadlinkComponent>,@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   downloadlink:string = "https://somefakelink.com/wawdownload"
 

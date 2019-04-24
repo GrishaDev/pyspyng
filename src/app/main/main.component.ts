@@ -2,6 +2,9 @@ import { Component, OnInit,HostBinding } from '@angular/core';
 import { OverlayContainer} from '@angular/cdk/overlay';
 import {MatSnackBar,MatDialog, MatDialogConfig,MAT_DIALOG_DATA,MatDialogRef} from '@angular/material';
 import { DownloadlinkComponent } from './downloadlink/downloadlink.component'
+
+import { GeneralService } from './general.service';
+
 const dark = 'dark-theme';
 const light = 'default-theme';
 
@@ -20,7 +23,9 @@ export class MainComponent implements OnInit {
   
   users = ['noob','pro','yogurt','harta'];
   
-  constructor(public overlayContainer: OverlayContainer,private dialog: MatDialog)
+  link:string = "Error getting link";
+
+  constructor(public overlayContainer: OverlayContainer,private dialog: MatDialog, private generalapi:GeneralService,private snackBar: MatSnackBar)
   {
     this.overlayContainer.getContainerElement().classList.add(dark);
     this.overlayContainer.getContainerElement().classList.remove(light);
@@ -29,7 +34,19 @@ export class MainComponent implements OnInit {
 
   ngOnInit() 
   {
-    
+    this.getLink();
+  }
+
+  getLink()
+  {
+    this.generalapi.getDownloadLink().subscribe((data:any) =>
+    {
+      console.log(data);
+      this.link = data.link;
+      console.log("Got download link");
+    },
+    (err) => {console.log("Error contacting general service, server down? details: "+JSON.stringify(err));
+    this.openSnackBar("Error getting general data(not critical)","hmm ok");});
   }
 
   toggleTheme()
@@ -66,7 +83,16 @@ export class MainComponent implements OnInit {
 
   downloadlink()
   {
-    let dialogref = this.dialog.open(DownloadlinkComponent)
+    let dialogref = this.dialog.open(DownloadlinkComponent,
+    {
+      data: {link:this.link}
+    });
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 4000,
+    });
   }
 }
   

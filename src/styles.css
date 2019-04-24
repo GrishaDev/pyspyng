@@ -10,3 +10,22 @@ body{
     /* background: url(./assets/bg.jpg) no-repeat center center fixed; */
     /* background-image: url("./assets/bg.jpg"); */
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(78, 78, 78); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

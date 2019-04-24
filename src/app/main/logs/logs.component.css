@@ -4,6 +4,7 @@
     width: 50%;
     left: 5%;
     height: 40%;
+    min-width: 275px;
 }
 .logs:hover .logscontent
 {
